@@ -16,7 +16,6 @@
 ***
 
 ##Example Usage:
-<pre>
     <script>
       $(document).ready(function(){
         $("dl.infographic_rotate").infoCircle({
@@ -24,7 +23,7 @@
         });
       });
     </script>
-</pre>
+    
 
 ***
 
