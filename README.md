@@ -1,16 +1,16 @@
 ##Requirements:
-A definition list of items with a title, and description
-title = title of info item (this will be the icon)
-description = the actual info description (hidden until selected)
+* A definition list of items with a title, and description
+   + title = title of info item (this will be the icon)
+   + description = the actual info description (hidden until selected)
 
 
 ***
 
 ##How To Use:
-# Add both the js/css to your page
-# At document.ready script, altering any variables required (defaults are set by the plugin)
-# Create <dl> with dt as the icon and title, and the dd as the info copy
-# Modify css as required
+* Add both the js/css to your page
+* At document.ready script, altering any variables required (defaults are set by the plugin)
+* Create <dl> with dt as the icon and title, and the dd as the info copy
+* Modify css as required
 
 
 ***
