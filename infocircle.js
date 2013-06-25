@@ -23,6 +23,7 @@
     var settings = $.extend({
       initSpeed: 4.5, // Speed of load animation (0.1-10)
       frameLength: 1000/24, // How many milliseconds for each frame (1000/24 for 24fps is common)
+      continuousEnabled: false, // Set this to true if you want a continuous animation after initial load.  note: this can have perform,ance issues
       continuousSpeed: 0.5, // Speed of continuous animation (0.1-10)
       iconRadius: this.find('dt').width()/2, // Radius of span - do not use a css border as can break things (plugin should calculate this itself using your css)
       iconZoomRadius: this.find('dt.selected').width()/2, // Radius of zoomed item (plugin should calculate this itself using your css)
@@ -162,6 +163,14 @@
 
     console.log('===transition===');
 
+    console.log(settings.continuousEnabled);
+
+    if(settings.continuousEnabled){
+      endSpeed = settings.continuousSpeed;
+    }else{
+      endSpeed = 0;
+    }
+
     // Setup initial variables for transition
     if(typeof transitionCycle === 'undefined'){
       transitionState = true;
@@ -183,7 +192,7 @@
     // The variables for calculating the speed change
 
     //Difference between the init and continous cycle lengths
-    speedDifference = settings.initSpeed - settings.continuousSpeed;
+    speedDifference = settings.initSpeed - endSpeed;
 
     // Total expected cycles
     totalExpectedCycles = (transitionTime*1000)/settings.frameLength;
@@ -227,7 +236,9 @@
       }, settings.frameLength);
     }else{
       transitionState = false;
-      infinitePlayInfographic(theList, settings, transitionState);
+      if(settings.continuousEnabled){
+        infinitePlayInfographic(theList, settings, transitionState);
+      }
     }
 
     

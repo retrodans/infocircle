@@ -34,3 +34,4 @@
 * iconRadius: Radius of span - do not use a css border as can break things (plugin should calculate this itself using your css)
 * iconZoomRadius: Radius of zoomed item (plugin should calculate this itself using your css)
 * circleRadius: Radius of the circle path to use (in pixels)
+* continuousEnabled: Set this to true if you want a continuous animation after initial load.  note: this can have perform,ance issues
