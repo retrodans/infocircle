@@ -27,7 +27,8 @@
       continuousSpeed: 0.5, // Speed of continuous animation (0.1-10)
       iconRadius: this.find('dt').width()/2, // Radius of span - do not use a css border as can break things (plugin should calculate this itself using your css)
       iconZoomRadius: this.find('dt.selected').width()/2, // Radius of zoomed item (plugin should calculate this itself using your css)
-      circleRadius: 200 // Radius of the circle path to use (in pixels)
+      circleRadius: 200, // Radius of the circle path to use (in pixels)
+      defaultItem: 1 // Sets a default item if greater than 0, so if after transition you want an item automaticall selected, but it's number in here
     }, options );
 
     // Remove .selected
@@ -161,10 +162,6 @@
    */
   function initToContinuousTransition(theList, settings){
 
-    console.log('===transition===');
-
-    console.log(settings.continuousEnabled);
-
     if(settings.continuousEnabled){
       endSpeed = settings.continuousSpeed;
     }else{
@@ -241,6 +238,10 @@
       }
     }
 
+    // If a defaultitem has been chosen for usage, then click it
+    if(transitionState === false && settings.defaultItem > 0){
+      $(theList).find("dt:eq("+(settings.defaultItem-1)+")").click();
+    }
     
   }
 
