@@ -70,7 +70,7 @@
         removeInfo();
       }else{
         removeInfo();
-        $(this).addClass('selected', 500);
+        $(this).addClass('selected', 0);
       
         // Setup info area in center
         infographicTitle = '<h3>'+$(this).text()+'</h3>';
